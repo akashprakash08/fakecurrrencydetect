@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bttn.css/0.2.4/bttn.css">
+    
+    <!-- Load static files -->
+    {% load static %}
+
+    <title>{% block pagetitle %}
+
+        {% endblock pagetitle %}</title>
+    <style>
+        .bg {
+
+            height: 100%;
+
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .file-upload input[type='file'] {
+            display: none;
+        }
+
+        body {
+            /*background-color: #4ECC5A;*/
+            /* background: -webkit-linear-gradient(to right, #66a776, #043610);
+            background: linear-gradient(to right, #5d9c6a, #059b0d); */
+            height: 100vh;
+        }
+
+        .rounded-lg {
+            border-radius: 1rem;
+        }
+
+        .custom-file-label.rounded-pill {
+            border-radius: 50rem;
+        }
+
+        .custom-file-label.rounded-pill::after {
+            border-radius: 0 50rem 50rem 0;
+        }
+
+        label {
+            background-color: rgb(2, 46, 15);
+            color: white;
+            padding: 0.5rem;
+            font-family: sans-serif;
+            border-radius: 0.3rem;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        #file-chosen {
+            margin-left: 0.3rem;
+            font-family: sans-serif;
+        }
+
+        .footer-basic {
+            padding: 40px 0;
+            background-color: #042908;
+            color: #f1f3f5;
+        }
+
+        .footer-basic ul {
+            padding: 0;
+            list-style: none;
+            text-align: center;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        .footer-basic li {
+            padding: 0 10px;
+        }
+
+        .footer-basic ul a {
+            color: inherit;
+            text-decoration: none;
+            opacity: 0.8;
+        }
+
+        .footer-basic ul a:hover {
+            opacity: 1;
+        }
+
+        .footer-basic .social {
+            text-align: center;
+            padding-bottom: 25px;
+        }
+
+        .footer-basic .social>a {
+            font-size: 24px;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            display: inline-block;
+            text-align: center;
+            border-radius: 50%;
+            border: 1px solid #ccc;
+            margin: 0 8px;
+            color: inherit;
+            opacity: 0.75;
+        }
+
+        .footer-basic .social>a:hover {
+            opacity: 0.9;
+        }
+
+        .footer-basic .copyright {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 13px;
+            color: #aaa;
+            margin-bottom: 0;
+        }
+
+        /* Center the navbar and fill the width */
+        .navbar {
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Center the navbar links */
+        .navbar-nav {
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Add some space between navbar links */
+        .navbar-brand {
+            margin-right: 30px;
+            margin-left: 30px;
+        }
+
+        /* Style the navbar links */
+        .navbar-brand a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Change the color of active navbar link */
+        .navbar-brand.active a {
+            color: white;
+        }
+
+        /* Style for the sentence as bullet point */
+        .bullet-point {
+    position: absolute;
+    top: 50%;
+    width: 70%;
+    height: 40%; /* Set the height of the div */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(244, 243, 241, 0.368);
+    color: rgb(1, 1, 1);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 20px;
+    max-width: 60%;
+    white-space: normal; /* Allow text to wrap */
+}
+
+.about-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80%;
+            background-color: #c4b4b4;
+        }
+
+        .flex-card {
+            width: 200px;
+            height: 200px;
+            margin: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        
+
+       
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark " style="background-color:#fca400; font-size: 20px;">Fake Currency Detection</nav>
+    <nav class="navbar navbar-expand-lg navbar-dark " style="background-color:#979b98;">
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="navbar-brand active">
+                    <a class="nav-link" href="/" style="color: rgb(10, 9, 8);">Home</a>
+                </li>
+                <li class="navbar-brand active">
+                    <a class="nav-link" href="#about-section" style="color: rgb(10, 9, 8);">Services</a>
+                </li>
+                <li class="navbar-brand">
+                    <a class="nav-link" href="/about" style="color: rgb(10, 9, 8);">About</a>
+                </li>
+                <li class="navbar-brand">
+                    <a class="nav-link" href="/contact" style="color: rgb(10, 9, 8);">Contact Us</a>
+                </li>
+                <li class="navbar-brand">
+                    <a class="nav-link" href="my-login" style="color: rgb(10, 9, 8);">Login</a>
+                </li>
+                <li class="navbar-brand">
+                    <a class="nav-link" href="register" style="color: rgb(10, 9, 8);">Register</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+    <section class="home">
+        <img src="{% static 'css/img1.jpg' %}" alt="Description of your image" width="100%" height="100%">
+        <div class="bullet-point">
+           Welcome to our cutting-edge fake currency detection system! Our advanced technology 
+                utilizes state-of-the-art algorithms and machine learning techniques to accurately identify counterfeit 
+                currency with unparalleled precision. Our system is designed to provide seamless integration into your existing processes, 
+                offering real-time detection capabilities to safeguard your business against the threat of fraudulent currency.
+                 With a user-friendly interface and rapid processing times, our solution ensures efficiency and peace of mind 
+                 for businesses of all sizes. Say goodbye to the risks associated with counterfeit currency and trust in our reliable
+                  detection system to keep your transactions secure.
+        </div>
+    </section>
+    <section class="about-section" id="about-section">
+        <div class="flex-card">
+            <center><p>Users can Check their currency by uploading the image</p></center>
+        </div>
+        <div class="flex-card">
+            <center><p>Results Will be provided in  the Dashboard</p></center>
+        </div>
+        <div class="flex-card">
+            <center><p>Exchange rate of the currency will be displayed </p></center>
+        </div>
+        <div class="flex-card">
+            <center><p>mail results regarding the currency test status will be notofied</p></center>
+        </div>
+    </section>
+</body>
+
+</html>
