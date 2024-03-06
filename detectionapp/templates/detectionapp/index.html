@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bttn.css/0.2.4/bttn.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     
     <!-- Load static files -->
     {% load static %}
@@ -101,7 +103,7 @@
 }
 
 .grid-item {
-  background-color: rgb(234, 214, 214);
+  background-color: rgb(227, 217, 217);
   text-align: center;
    padding:5px;
    
@@ -146,8 +148,109 @@
     margin-right: auto; 
 }
 
+/* for service section*/
+.ser-container{
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins';
+    box-sizing: border-box;
+    min-width:100hv;
+    width: 100%;
+    
+}
+.service-wrapper{
+    padding: 5% 8%;
+   
+}
+.card{
+    background-color: rgb(227, 217, 217);
+}
+.service{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-
+h1{
+    font-size: 5rem;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: transparent;
+    letter-spacing: 4px; 
+    background-color: rgba(4, 51, 83, 0.723);
+    position:relative;
+}
+.cards{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap:30px;
+    margin-top: 80px;
+}
+.card{
+    height: 350px;
+    width: 370px;
+    background-color: rgb(105, 105, 173);
+    padding: 3% 8%;
+    border: 1px solid black;
+    border-radius: 10px;
+    transition: .6s;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+.card:after{
+    content: "";
+    position: absolute;
+    top:150%;
+    left:-200px;
+    width:120%;
+    transform: rotate(50deg);
+    background-color: #fff;
+    height: 18px;
+    filter: blur(30px);
+    opacity: 0.5;
+    transition: 1s;
+}
+.card:hover::after{
+    width: 225%;
+    top:-100%;
+}
+.card i{
+    color: aqua;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 2.2rem;
+}
+.card h2{
+    color: #fff;
+    font-size: 2rem;
+}
+.card p{
+    text-align: center;
+    width: 100%;
+    margin:12px 0;
+}
+.card:hover{
+    background-color: tan;
+    transform: translateY(-10px);
+  
+}
+@media  screen and (max-width:1200px) {
+    .cards{
+        grid-template-columns: repeat(2,1fr);
+    } 
+}
+@media  screen and (max-width:900px) {
+    .cards{
+        grid-template-columns: repeat(1,1fr);
+    } 
+    h1{
+        font-size: 2.5rem;
+        
+    }
+}
 
        
     </style>
@@ -182,6 +285,67 @@
                 from counterfeit currency, providing peace of mind in every transaction.</div>  
        
         
+      </section>
+      <section>
+        <div class="ser-container"> 
+            <div class="service-wrapper">
+                <div class="service">
+                    <h1>Our Service</h1>
+                    <div class="cards">
+                        <div class="card">
+                            <i class="fa-brands fa-chromecast"></i>
+                            <h2>Business Statagy</h2>
+                            <p>Lorem ipsum dolor, sit amet consectetur 
+                                adipisicing elit. Assumenda tenetur consectetur,
+                                 unde similique nam tempore? Dolores ullam
+                                  consequuntur ab perspiciatis eligendi 
+                                  inventore distinctio sequi, perferendis 
+                                  exercitationem repudiandae? Pariatur, quae dolores!</p>
+                        </div>
+                        <div class="card">
+                            <i class="fa-brands fa-chromecast"></i>
+                            <h2>website Development</h2>
+                            <p>Lorem ipsum dolor, sit amet consectetur 
+                                adipisicing elit. Assumenda tenetur consectetur,
+                                 unde similique nam tempore? Dolores ullam
+                                  consequuntur ab perspiciatis eligendi 
+                                  inventore distinctio sequi, perferendis 
+                                  exercitationem repudiandae? Pariatur, quae dolores!</p>
+                        </div>
+                        <div class="card">
+                            <i class="fa-brands fa-chromecast"></i>
+                            <h2>Marketing</h2>
+                            <p>Lorem ipsum dolor, sit amet consectetur 
+                                adipisicing elit. Assumenda tenetur consectetur,
+                                 unde similique nam tempore? Dolores ullam
+                                  consequuntur ab perspiciatis eligendi 
+                                  inventore distinctio sequi, perferendis 
+                                  exercitationem repudiandae? Pariatur, quae dolores!</p>
+                        </div>
+                        <div class="card">
+                            <i class="fa-brands fa-chromecast"></i>
+                            <h2>Marketing2</h2>
+                            <p>Lorem ipsum dolor, sit amet consectetur 
+                                adipisicing elit. Assumenda tenetur consectetur,
+                                 unde similique nam tempore? Dolores ullam
+                                  consequuntur ab perspiciatis eligendi 
+                                  inventore distinctio sequi, perferendis 
+                                  exercitationem repudiandae? Pariatur, quae dolores!</p>
+                        </div>
+                        <div class="card">
+                            <i class="fa-brands fa-chromecast"></i>
+                            <h2>Marketing3</h2>
+                            <p>Lorem ipsum dolor, sit amet consectetur 
+                                adipisicing elit. Assumenda tenetur consectetur,
+                                 unde similique nam tempore? Dolores ullam
+                                  consequuntur ab perspiciatis eligendi 
+                                  inventore distinctio sequi, perferendis 
+                                  exercitationem repudiandae? Pariatur, quae dolores!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
       </section>
       
 </body>
