@@ -54,16 +54,22 @@
         /* Center the navbar and fill the width */
         .topnav {
   overflow: hidden;
+  display: flex;
+  justify-content: flex-end;
   background-color: hsl(0, 0%, 96%);
+  justify-content: space-between; /* Distribute items to the left and right */
+  align-items: center;
+  padding: 0 20px;
 }
 
 .topnav a {
-  float: right;
+    margin-left: 15px;
   color: #000000;
   text-align: center;
-  padding: 14px 16px;
+  padding: 14px 14px;
   text-decoration: none;
   font-size: 25px;
+  
 }
 
 .topnav a:hover {
@@ -79,44 +85,69 @@
        
 
         /* Style for the sentence as bullet point */
-        .bullet-point {
+    .bullet-point {
     position: absolute;
-    top: 50%;
-    width: 70%;
-    height: 40%; /* Set the height of the div */
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(244, 243, 241, 0.368);
-    color: rgb(1, 1, 1);
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 20px;
-    max-width: 60%;
-    white-space: normal; /* Allow text to wrap */
+    top: 35%;
+    left: 12%;
+    color:rgb(255, 255, 255);
+    padding: 15px;
+    font-size: 100px;
 }
 
 .about-section {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 80%;
-            background-color: #ffffff;
+  display: grid;
+  padding: 50px;
+  
+}
+
+.grid-item {
+  background-color: rgb(234, 214, 214);
+  text-align: center;
+   padding:5px;
+   
+  font-size: 30px;
+}
+
+.item1 {
+  grid-column: 1 / span 1;
+  grid-row: 1;
+  padding-top: 20px  ;
+}
+
+.item2 {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  padding-top:150px;
+}
+
+        .coin {
+    height: 60px;
+    animation: rotateCoin 2s linear infinite;    
+    display: inline;
+    margin-right: 10px;
         }
 
-        .flex-card {
-            width: 200px;
-            height: 200px;
-            margin: 20px;
-            background-color: #ffffff;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+@keyframes rotateCoin {
+    0% {
+        transform: rotateY(0deg);
+      
+    }
+    100% {
+        transform: rotateY(180deg);
+    }
+}
+.title{
+    margin: 0;
+    color: orange;
+    display:inline;
+    font-size: 35px;
+    font-family: DejaVu Sans Mono, monospace;
+    padding: 14px 1px;
+    margin-right: auto; 
+}
 
-        
+
+
 
        
     </style>
@@ -125,9 +156,10 @@
 <body>
 
     <div class="topnav">
-        <img src="  {% static 'css/logo for site.png' %}" alt="ee" height="60px" >
+        <img class="coin" src="  {% static 'css/logo for site.png' %}" alt="ee"  >
+        <div class="title">Fake Currency Detection</div>
         <a class="active" href="#home">Home</a>
-        <a href="#news">News</a>
+        <a href="#about"  href="about"> News</a>
         <a href="#contact">Contact</a>
         <a href="#about">About</a>
       </div>
@@ -135,29 +167,23 @@
     <section class="home">
         <img src="{% static 'css/img1.jpg' %}" alt="Description of your image" width="100%" height="100%">
         <div class="bullet-point">
-           Welcome to our cutting-edge fake currency detection system! Our advanced technology 
-                utilizes state-of-the-art algorithms and machine learning techniques to accurately identify counterfeit 
-                currency with unparalleled precision. Our system is designed to provide seamless integration into your existing processes, 
-                offering real-time detection capabilities to safeguard your business against the threat of fraudulent currency.
-                 With a user-friendly interface and rapid processing times, our solution ensures efficiency and peace of mind 
-                 for businesses of all sizes. Say goodbye to the risks associated with counterfeit currency and trust in our reliable
-                  detection system to keep your transactions secure.
+           Welcome to our  currency detection website.
         </div>
     </section>
-    <section class="about-section" id="about-section">
-        <div class="flex-card">
-            <center><p>Users can Check their currency by uploading the image</p></center>
-        </div>
-        <div class="flex-card">
-            <center><p>Results Will be provided in  the Dashboard</p></center>
-        </div>
-        <div class="flex-card">
-            <center><p>Exchange rate of the currency will be displayed </p></center>
-        </div>
-        <div class="flex-card">
-            <center><p>mail results regarding the currency test status will be notofied</p></center>
-        </div>
-    </section>
+    <section class="about-section">
+        <div class="grid-item item1">ABOUT</div>
+        <div class="grid-item item2"><img src="{% static 'css/img1.jpg' %}" alt="Description of your image" id="aboutimage" class="grid-item item3" width="100%"  ></div>
+        <div class="grid-item item3">Explore the cutting-edge technology of our currency verification system, where users can
+             effortlessly check the authenticity of their currency by simply uploading an image. Our system utilizes advanced
+              algorithms to analyze key features of the currency, ensuring accurate detection of counterfeit notes. With 
+              a user-friendly interface, individuals can easily navigate the process and receive instant results. This 
+              innovative solution not only enhances security but also saves time and effort. Join us in revolutionizing the way
+               currency verification is done, making it more accessible and reliable for everyone. Trust our system to protect you
+                from counterfeit currency, providing peace of mind in every transaction.</div>  
+       
+        
+      </section>
+      
 </body>
 
 </html>
