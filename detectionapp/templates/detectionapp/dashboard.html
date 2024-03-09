@@ -1,14 +1,97 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Welcome to your profile</title>
+    <style>
+        #main {
+            border: 1px solid #c3c3c3;
+            display: flex;
+        }
+
+        .div1 {
+            flex-grow: 1;
+            background-color: coral;
+            padding: 10px;
+            margin: 10px;
+            width: 150px;
+        }
+
+        .div2 {
+            flex-grow: 3;
+            background-color: lightblue;
+            padding: 10px;
+            margin: 10px;
+            height: 200px;
+        }
+
+        .title{
+    margin: 0;
+    color: orange;
+    display:inline;
+    font-size: 35px;
+    font-family: DejaVu Sans Mono, monospace;
+    padding: 14px 1px;
+    margin-right: auto; 
+}
+.topnav {
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-end;
+  background-color: hsl(0, 0%, 96%);
+  justify-content: space-between; /* Distribute items to the left and right */
+  align-items: center;
+  padding: 0 20px;
+}
+.coin1 {
+    height: 60px;
+   
+    display: inline;
+    margin-right: 10px;
+        }
+
+        .coin {
+    height: 60px;
+    animation: rotateCoin 2s linear infinite;    
+    display: inline;
+    margin-right: 10px;
+        }
+
+@keyframes rotateCoin {
+    0% {
+        transform: rotateY(0deg);
+      
+    }
+    100% {
+        transform: rotateY(180deg);
+    }
+}
+    </style>
 </head>
 <body>
-    <h1>Welcome to the Dashboard</h1>
+    <div class="topnav">
+        <img class="coin" src="  {% static 'css/logo for site.png' %}" alt="ee"  >
+        <div class="title">Fake Currency Detection</div>
+        
+        <a href="{% url 'user-logout' %}">Logout</a>
 
-    <!-- Corrected logout link -->
-    <a href="{% url 'user-logout' %}">Logout</a>
+      </div>
+    <div id="main">
+        <div class="div1">
+            <h1>Welcome to the Dashboard, {{ username }}</h1>
+            <h1>Welcome to the Dashboard, {{ email }}</h1>
+        </div>
+        <div class="div2">
+            <h1>Upload your Currency Image for Detection</h1>
+
+<form action="/action_page.php">
+  <label for="img">Select image:</label>
+  <input type="file" id="img" name="img" accept="image/*">
+  <input type="submit">
+</form>
+        </div>
+    </div>
 </body>
 </html>

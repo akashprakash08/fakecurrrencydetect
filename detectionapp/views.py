@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from .forms import CreateUserForm, LoginForm
 from django.urls import reverse
+from django.contrib.auth.decorators import login_required
 
 def homepage(request):
     return render(request, 'detectionapp/index.html')
@@ -37,9 +38,13 @@ def my_login(request):
     context = {'loginform': form}
     return render(request, 'detectionapp/my-login.html', context=context)
 
+@login_required
 def dashboard(request):
-    return render(request, 'detectionapp/dashboard.html')
-
+    
+    username = request.user.username
+    email = request.user.email
+    context = {'username': username, 'email': email}
+    return render(request, 'detectionapp/dashboard.html', context=context)
 
 def user_logout(request):
     logout(request)
